@@ -1,0 +1,14 @@
+<div>
+  <a href="{% url 'index' %}">ホームに戻る</a>
+</div>
+
+<h2>{{ memo.title }}</h2>
+<div>
+  {{ memo.text | linebreaks | urlize }}
+</div>
+
+<form method="POST" action="{% url 'delete_memo' memo.pk %}">
+  {%csrf_token%}
+  <button class="btn" type="submit" onclick='return confirm("are you sure?");'>Delete</button>
+</form>
+<button><a class="btn" href="{% url 'edit_memo' memo.pk %}">Edit</a></button>

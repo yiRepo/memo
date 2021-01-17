@@ -1,0 +1,17 @@
+<div>
+<a href="{% url 'detail' memo.id %}">Back</a>
+</div>
+
+<form action="{% url 'edit_memo' memo.id %}" method="POST">{% csrf_token %}
+  <table>
+    <tr>
+      <th>Title</th>
+      <td>{{ form.title }}</td>
+    </tr>
+    <tr>
+      <th>Text</th>
+      <td>{{ form.text }}</td>
+    </tr>
+  </table>
+  <button class="btn" type="submit">Save</button>
+</form>
